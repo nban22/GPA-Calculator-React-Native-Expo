@@ -1,6 +1,5 @@
-import { BlurView } from "expo-blur";
 import React, { useEffect, useRef, useState } from "react";
-import { Alert, Dimensions, ImageBackground, Keyboard, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { Alert, Dimensions, ImageBackground, Keyboard, Pressable, ScrollView, StatusBar, StyleSheet, Text, TextInput, View } from "react-native";
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -121,11 +120,16 @@ export default function Index() {
 
     return (
         <View style={styles.container}>
+            <StatusBar
+                barStyle="light-content"
+                backgroundColor="#000"
+                translucent={true} 
+            />
             <ImageBackground source={require('./assets/background.jpg')} resizeMode="cover" blurRadius={5} style={styles.imageBackground} />
             <View style={styles.appHeader}>
                 <Text style={styles.headerTitle}>GPA Calculator</Text>
             </View>
-            <BlurView intensity={150} style={styles.inputCourseBox}>
+            <View style={styles.inputCourseBox}>
                 <View style={styles.inputGroup}>
                     <Text style={styles.lableInput}>Course</Text>
                     <TextInput
@@ -164,7 +168,7 @@ export default function Index() {
                 >
                     <Text style={styles.textInsideButtonAdd}>Add Course</Text>
                 </Pressable>
-            </BlurView>
+            </View>
             <ScrollView style={styles.displayCourseList}>
                 <Text style={styles.courseListTitle}>Course List</Text>
                 <View>
@@ -238,6 +242,7 @@ const styles = StyleSheet.create({
 
     },
     inputCourseBox: {
+        backgroundColor: 'rgba(255, 255, 255, 0.6)',
         paddingHorizontal: 30,
         paddingVertical: 30,
         borderRadius: 10,
