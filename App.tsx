@@ -123,7 +123,7 @@ export default function Index() {
             <StatusBar
                 barStyle="light-content"
                 backgroundColor="#000"
-                translucent={true} 
+                translucent={false} 
             />
             <ImageBackground source={require('./assets/background.jpg')} resizeMode="cover" blurRadius={5} style={styles.imageBackground} />
             <View style={styles.appHeader}>
@@ -225,7 +225,7 @@ const styles = StyleSheet.create({
 
     },
     appHeader: {
-        marginTop: 40,
+        marginTop: 15,
         width: '100%',
         height: 80,
         alignItems: "center",
